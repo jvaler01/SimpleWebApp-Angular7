@@ -1,0 +1,25 @@
+<h1 class="animated fadeIn fast">Buscador: <small>{{ termino }}</small></h1>
+<hr>
+
+<div *ngIf="heroes.length == 0" class="row">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      No existen resultados para ese termino.
+    </div>
+  </div>
+</div>
+
+<div class="card-columns animated fadeIn">
+  <!--<div class="card animated fadeIn fast" *ngFor="let heroe of heroes, let i = index">
+    <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{ heroe.nombre }}</h5>
+      <p class="card-text">{{ heroe.bio }}</p>
+      <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+
+      <a [routerLink]="['/heroe',i]" href="#" class="btn btn-block btn-outline-info">Ver mas...</a>
+      <button (click)="verHeroe(i)" type="button" class="btn btn-block btn-outline-info">Ver mas...</button>
+    </div>
+  </div>-->
+  <app-heroe-tarjeta (heroeSeleccionado)="verHeroe( $event )" [heroe]="foo" [index]="foo.idx"  *ngFor="let foo of heroes;"></app-heroe-tarjeta>
+</div>
